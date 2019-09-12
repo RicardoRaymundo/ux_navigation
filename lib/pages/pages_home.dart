@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ux_navigation/pages/info/pages_info_main.dart';
 
 class PagesHome extends StatefulWidget {
   @override
@@ -32,7 +33,17 @@ class _PagesHomeState extends State<PagesHome> {
                   child: Container(
                     color: Colors.black,
                     width: 150,
-                    child: Center(child: Text('${items[index]}')),
+                    child: Material(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PagesInfoMain()));
+                        },
+                        child: Center(child: Text('${items[index]}')),
+                      ),
+                    ),
                   ),
                 );
               },

@@ -1,20 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ux_navigation/pages/pages_downloads.dart';
+import 'package:ux_navigation/pages/fab_placeholder.dart';
+import 'package:ux_navigation/pages/info/pages_info_achievements.dart';
+import 'package:ux_navigation/pages/info/pages_info_classes.dart';
+import 'package:ux_navigation/pages/info/pages_info_course.dart';
+import 'package:ux_navigation/pages/info/pages_info_downloads.dart';
 import 'package:ux_navigation/pages/pages_gallery.dart';
-import 'package:ux_navigation/pages/pages_home.dart';
-import 'package:ux_navigation/pages/pages_more.dart';
-import 'package:ux_navigation/pages/pages_search.dart';
 import 'package:ux_navigation/resources/custom_fab/resources_custom_bottombar.dart';
 import 'package:ux_navigation/resources/custom_fab/resources_custom_fab_icons.dart';
 import 'package:ux_navigation/resources/custom_fab/resources_custom_layout.dart';
 
-class PagesMain extends StatefulWidget {
+class PagesInfoMain extends StatefulWidget {
   @override
-  _PagesMainState createState() => _PagesMainState();
+  _PagesInfoMainState createState() => _PagesInfoMainState();
 }
 
-class _PagesMainState extends State<PagesMain>
+class _PagesInfoMainState extends State<PagesInfoMain>
     with SingleTickerProviderStateMixin {
+
   int currentTabIndex = 0;
   int currentFabIndex = 0;
   bool isTab = true;
@@ -23,10 +26,10 @@ class _PagesMainState extends State<PagesMain>
   /// Listas de Widgets que a bottombar exibirá. Tanto pelos filhos do botao central, quanto
   /// os filhos da bottombar
   final List<Widget> tabItems = [
-    PagesHome(),
-    PagesSearch(),
-    PagesDownloads(),
-    PagesMore(),
+    PagesInfoCourse(),
+    PagesInfoClasses(),
+    PagesInfoDownloads(),
+    PagesInfoAchievements(),
   ];
 
   final List<Widget> fabItems = [
@@ -53,15 +56,14 @@ class _PagesMainState extends State<PagesMain>
       isTab = false;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Opacity(
       opacity:
 
-          /// Verifica a orientação do celular, certificando-se de que seja
-          /// mantida a orientação portrait
-          MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 0,
+      /// Verifica a orientação do celular, certificando-se de que seja
+      /// mantida a orientação portrait
+      MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 0,
       child: Scaffold(
 
         /// Widget que será exibido atravez da seleção da bottombar
@@ -74,11 +76,11 @@ class _PagesMainState extends State<PagesMain>
           onTabSelected: _selectedTab,
           items: [
             /// itens da bottombar
-            FABBottomAppBarItem(iconData: Icons.arrow_downward, text: 'Início'),
-            FABBottomAppBarItem(iconData: Icons.loupe, text: 'Buscas'),
+            FABBottomAppBarItem(iconData: Icons.arrow_downward, text: 'Curso'),
+            FABBottomAppBarItem(iconData: Icons.loupe, text: 'Aulas'),
             FABBottomAppBarItem(
-                iconData: Icons.file_download, text: 'Downloads'),
-            FABBottomAppBarItem(iconData: Icons.menu, text: 'Mais'),
+                iconData: Icons.file_download, text: 'Recursos'),
+            FABBottomAppBarItem(iconData: Icons.menu, text: 'Conquistas'),
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -113,32 +115,3 @@ class _PagesMainState extends State<PagesMain>
     );
   }
 }
-
-/*
-ANTIGA IMPLEMENTACAO DA BOTTOMBAR
-bottomNavigationBar: FABBottomAppBar(
-          backgroundColor: Color(0xff222222),
-          iconSize: 20,
-          centerItemText: 'Galeria',
-          color: Colors.white54,
-          selectedColor: Colors.white,
-          notchedShape: CircularNotchedRectangle(),
-          //onTabSelected: widget.selectedTab,
-          items: [
-            FABBottomAppBarItem(iconData: Icons.arrow_downward, text: 'Início'),
-            FABBottomAppBarItem(iconData: Icons.loupe, text: 'Buscas'),
-            FABBottomAppBarItem(
-                iconData: Icons.file_download, text: 'Downloads'),
-            FABBottomAppBarItem(iconData: Icons.menu, text: 'Mais'),
-          ],
-        ),
-
- ANTIGO FAB CENTRALIZADO
-floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Color(0xffb2208c),
-          onPressed: () {},
-          child: Icon(Icons.trip_origin),
-          elevation: 5.0,
-        ),
- */
