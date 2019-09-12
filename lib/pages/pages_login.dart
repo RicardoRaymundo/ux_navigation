@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ux_navigation/app/app_routes.dart';
 
 class PagesLogin extends StatelessWidget {
   final String assetName = 'assets/svg/logo-new-school.svg';
@@ -81,7 +82,7 @@ class PagesLogin extends StatelessWidget {
             onPressed: () {
               //TODO:: SHOWPLAYER ????
               //CustomNavigator.showPlayer(context, MainPage(currentTabIndex, selectedTab));
-              Navigator.popAndPushNamed(context, '/pagesMain');
+              Navigator.popAndPushNamed(context, AppRoutes.pagesMain);
             },
           ),
         ),

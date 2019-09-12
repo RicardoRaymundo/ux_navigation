@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ux_navigation/app/app_behavior.dart';
 import 'package:ux_navigation/app/app_fonts.dart';
+import 'package:ux_navigation/app/app_routes.dart';
+import 'package:ux_navigation/pages/info/video/info_video_page.dart';
 import 'package:ux_navigation/pages/pages_login.dart';
 import 'package:ux_navigation/pages/pages_main.dart';
 
@@ -44,8 +46,9 @@ class _MainAppState extends State<MainApp> {
       home: home(),
       routes: <String, WidgetBuilder>{
         /// Rotas do app
-        '/pagesMain': (BuildContext context) => PagesMain(),
-        '/pagesLogin': (BuildContext context) => PagesLogin(),
+        AppRoutes.pagesMain: (BuildContext context) => PagesMain(),
+        AppRoutes.pagesLogin: (BuildContext context) => PagesLogin(),
+        AppRoutes.infoVideoPage: (BuildContext context) => InfoVideoPage(),
       },
     );
   }

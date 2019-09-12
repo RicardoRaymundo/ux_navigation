@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ux_navigation/app/app_button_enable.dart';
+import 'package:ux_navigation/app/app_routes.dart';
 
 class PagesInfoCourse extends StatefulWidget {
   @override
@@ -15,9 +17,19 @@ class _PagesInfoCourseState extends State<PagesInfoCourse> {
       body: ListView(
         children: <Widget>[
           Container(
-            color: Colors.purple,
             height: 180,
-            child: Center(child: Text('Vídeo introdutório do curso')),
+            child: Material(
+                color: Colors.purple,
+                child: InkWell(
+                onTap: () {
+                  AppButtonEnable.pagesInfoMain = false;
+                  Navigator.pushNamed(context, AppRoutes.infoVideoPage);
+                },
+                child: Center(
+                  child: Text('Vídeo introdutório do curso'),
+                ),
+              ),
+            ),
           ),
           SizedBox(
             height: 20,
@@ -85,11 +97,10 @@ class _PagesInfoCourseState extends State<PagesInfoCourse> {
       body: ListTile(
         title: Text(
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-              ' Sed eu tincidunt orci. Integer a posuere massa. Aliquam finibus felis tortor, et volutpat dolor lacinia quis.'
-              'Curabitur aliquet in ex eu lacinia. Sed non quam nisl. Aliquam blandit mi vel odio tempor convallis fermentum nec lorem.',
+          ' Sed eu tincidunt orci. Integer a posuere massa. Aliquam finibus felis tortor, et volutpat dolor lacinia quis.'
+          'Curabitur aliquet in ex eu lacinia. Sed non quam nisl. Aliquam blandit mi vel odio tempor convallis fermentum nec lorem.',
         ),
-        subtitle:
-        Text('To delete this panel, tap the trash can icon'),
+        subtitle: Text('To delete this panel, tap the trash can icon'),
       ),
       isExpanded: this._isExpanded,
     );

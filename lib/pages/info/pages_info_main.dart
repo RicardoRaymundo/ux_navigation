@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ux_navigation/pages/fab_placeholder.dart';
+import 'package:ux_navigation/app/app_button_enable.dart';
 import 'package:ux_navigation/pages/info/pages_info_achievements.dart';
 import 'package:ux_navigation/pages/info/pages_info_classes.dart';
 import 'package:ux_navigation/pages/info/pages_info_course.dart';
@@ -17,11 +17,11 @@ class PagesInfoMain extends StatefulWidget {
 
 class _PagesInfoMainState extends State<PagesInfoMain>
     with SingleTickerProviderStateMixin {
-
   int currentTabIndex = 0;
   int currentFabIndex = 0;
   bool isTab = true;
   bool isLogged = true;
+  bool disableButton = false;
 
   /// Listas de Widgets que a bottombar exibirá. Tanto pelos filhos do botao central, quanto
   /// os filhos da bottombar
@@ -35,7 +35,6 @@ class _PagesInfoMainState extends State<PagesInfoMain>
   final List<Widget> fabItems = [
     PagesGallery(),
   ];
-
 
   /// Método que altera o valor de index da battombar, quando um de seus filhos
   /// é clicado
@@ -56,35 +55,46 @@ class _PagesInfoMainState extends State<PagesInfoMain>
       isTab = false;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Opacity(
       opacity:
 
-      /// Verifica a orientação do celular, certificando-se de que seja
-      /// mantida a orientação portrait
-      MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 0,
-      child: Scaffold(
+          /// Verifica a orientação do celular, certificando-se de que seja
+          /// mantida a orientação portrait
+          MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 0,
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: Scaffold(
+          /// Widget que será exibido atravez da seleção da bottombar
+          body: this.isTab
+              ? this.tabItems[currentTabIndex]
+              : this.fabItems[currentFabIndex],
+          bottomNavigationBar: FABBottomAppBar(
+            centerItemText: 'Gallery',
+            color: Colors.white,
+            selectedColor: Colors.red,
+            notchedShape: CircularNotchedRectangle(),
+            onTabSelected: _selectedTab,
+            items: [
+              /// itens da bottombar
+              FABBottomAppBarItem(
+                  iconData: Icons.arrow_downward, text: 'Curso'),
+              FABBottomAppBarItem(iconData: Icons.loupe, text: 'Aulas'),
+              FABBottomAppBarItem(
+                  iconData: Icons.file_download, text: 'Recursos'),
+              FABBottomAppBarItem(iconData: Icons.menu, text: 'Conquistas'),
+            ],
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
 
-        /// Widget que será exibido atravez da seleção da bottombar
-        body: this.isTab ? this.tabItems[currentTabIndex] : this.fabItems[currentFabIndex],
-        bottomNavigationBar: FABBottomAppBar(
-          centerItemText: 'Gallery',
-          color: Colors.white,
-          selectedColor: Colors.red,
-          notchedShape: CircularNotchedRectangle(),
-          onTabSelected: _selectedTab,
-          items: [
-            /// itens da bottombar
-            FABBottomAppBarItem(iconData: Icons.arrow_downward, text: 'Curso'),
-            FABBottomAppBarItem(iconData: Icons.loupe, text: 'Aulas'),
-            FABBottomAppBarItem(
-                iconData: Icons.file_download, text: 'Recursos'),
-            FABBottomAppBarItem(iconData: Icons.menu, text: 'Conquistas'),
-          ],
+          /// Verifica a variavel static, se for true habilita o botão
+          /// e se for false, desabilita o botão
+          floatingActionButton:
+              AppButtonEnable.pagesInfoMain ? _buildFab(context) : null,
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: _buildFab(context),
       ),
     );
   }
@@ -92,7 +102,6 @@ class _PagesInfoMainState extends State<PagesInfoMain>
   /// Método que cria o FloatingActionButton(FAB) central que ao ser clicado,
   /// exibe, por animacão, uma coluna de botões
   Widget _buildFab(BuildContext context) {
-
     /// Lista de botões filhos
     final icons = [Icons.outlined_flag];
     return AnchoredOverlay(
@@ -113,5 +122,10 @@ class _PagesInfoMainState extends State<PagesInfoMain>
         elevation: 2.0,
       ),
     );
+  }
+
+  Future<bool> _onWillPop() {
+    AppButtonEnable.pagesHome = true;
+    return Future.value(true);
   }
 }

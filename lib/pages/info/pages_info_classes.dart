@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ux_navigation/app/app_routes.dart';
 
 class PagesInfoClasses extends StatefulWidget {
   @override
@@ -17,7 +18,15 @@ class _PagesInfoClassesState extends State<PagesInfoClasses> {
           Container(
             color: Colors.purple,
             height: 180,
-            child: Center(child: Text('Vídeo introdutório do curso')),
+            child: Material(
+              color: Colors.purple,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.infoVideoPage);
+                },
+                child: Center(child: Text('Vídeo introdutório do curso')),
+              ),
+            ),
           ),
           SizedBox(
             height: 20,

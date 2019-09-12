@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ux_navigation/app/app_button_enable.dart';
+import 'package:ux_navigation/app/app_routes.dart';
 import 'package:ux_navigation/pages/info/pages_info_main.dart';
 
 class PagesHome extends StatefulWidget {
@@ -30,17 +32,22 @@ class _PagesHomeState extends State<PagesHome> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(5.0),
-                  child: Container(
+                  child: Material(
                     color: Colors.black,
-                    width: 150,
-                    child: Material(
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PagesInfoMain()));
-                        },
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          AppButtonEnable.pagesHome =
+                              !AppButtonEnable.pagesHome;
+                        });
+                        print(AppButtonEnable.pagesHome);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PagesInfoMain()));
+                      },
+                      child: Container(
+                        width: 150,
                         child: Center(child: Text('${items[index]}')),
                       ),
                     ),
@@ -60,9 +67,16 @@ class _PagesHomeState extends State<PagesHome> {
                 return Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Container(
-                    color: Colors.black,
                     width: 100,
-                    child: Center(child: Text('${items[index]}')),
+                    child: Material(
+                      color: Colors.black,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, AppRoutes.infoVideoPage);
+                        },
+                        child: Center(child: Text('${items[index]}')),
+                      ),
+                    ),
                   ),
                 );
               },
@@ -71,9 +85,14 @@ class _PagesHomeState extends State<PagesHome> {
           _buildItemTitle(title: 'Disponível Agora'),
           Container(
             height: 250,
-            color: Colors.purple,
-            child: Center(
-              child: Text('Video de futurismo e Inovação'),
+            child: Material(
+              color: Colors.purple,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.infoVideoPage);
+                },
+                child: Center(child: Text('Video de futurismo e Inovação')),
+              ),
             ),
           ),
           Padding(
@@ -85,9 +104,16 @@ class _PagesHomeState extends State<PagesHome> {
                 children: <Widget>[
                   Container(
                     width: 175,
-                    color: Colors.purple,
-                    child: Center(
-                      child: Text('Assistir'),
+                    child: Material(
+                      color: Colors.purple,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, AppRoutes.infoVideoPage);
+                        },
+                        child: Center(
+                          child: Text('Assistir'),
+                        ),
+                      ),
                     ),
                   ),
                   Container(
@@ -112,9 +138,17 @@ class _PagesHomeState extends State<PagesHome> {
                 return Padding(
                   padding: const EdgeInsets.all(5.0),
                   child: Container(
-                    color: Colors.black,
                     width: 250,
-                    child: Center(child: Text('${items[index]}')),
+                    child: Material(
+                        color: Colors.black,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, AppRoutes.infoVideoPage);
+                          },
+                          child: Center(child: Text('${items[index]}')),
+                        ) //Center(child: Text('${items[index]}')),
+                        ),
                   ),
                 );
               },

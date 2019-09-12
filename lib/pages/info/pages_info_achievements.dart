@@ -5,50 +5,48 @@ class PagesInfoAchievements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: <Widget>[
-          Container(
-            color: Colors.purple,
-            height: 180,
-            child: Center(child: Text('Vídeo introdutório do curso')),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 40,
+      body: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: ListView(
+          children: <Widget>[
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 40,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Título',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
-                    'Título',
-                    style: TextStyle(fontSize: 30),
-                  ),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Conquistas no Curso',
+                        style: TextStyle(fontSize: 20, color: Colors.orange),
+                      ))
                 ],
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: <Widget>[
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Conquistas no Curso',
-                      style: TextStyle(fontSize: 20, color: Colors.orange),
-                    ))
-              ],
-            ),
-          ),
-          _buildAchievementsMedals(title: 'Título da Atividade'),
-          SizedBox(height: 10,),
-          _buildAchievementsMedals(title: 'Título da Atividade'),
-          SizedBox(height: 10,),
-          _buildAchievementsMedals(title: 'Título da Atividade'),
-        ],
+            _buildAchievementsMedals(title: 'Título da Atividade'),
+            SizedBox(height: 10,),
+            _buildAchievementsMedals(title: 'Título da Atividade'),
+            SizedBox(height: 10,),
+            _buildAchievementsMedals(title: 'Título da Atividade'),
+          ],
+        ),
       ),
     );
   }

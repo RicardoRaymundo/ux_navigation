@@ -7,11 +7,6 @@ class PagesInfoDownloads extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: <Widget>[
-          Container(
-            color: Colors.purple,
-            height: 180,
-            child: Center(child: Text('Vídeo introdutório do curso')),
-          ),
           SizedBox(
             height: 20,
           ),
@@ -26,12 +21,19 @@ class PagesInfoDownloads extends StatelessWidget {
                     'Título',
                     style: TextStyle(fontSize: 30),
                   ),
-
                 ],
               ),
             ),
           ),
-          _buildDownloadFile()
+          _buildDownloadFile(),
+          SizedBox(
+            height: 10,
+          ),
+          _buildDownloadFile(),
+          SizedBox(
+            height: 10,
+          ),
+          _buildDownloadFile(),
         ],
       ),
     );
@@ -49,14 +51,26 @@ class PagesInfoDownloads extends StatelessWidget {
             Container(
               color: Colors.white,
               width: 140,
+              child: Center(
+                child: Text(
+                  'ARQUIVO',
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
             ),
             Container(
               width: 150,
               child: Column(
                 children: <Widget>[
-                  Text('Título do arquivo', style: TextStyle(fontSize: 18),),
-                  SizedBox(height: 15,),
-                  Text('e eget metus semper, efficitur lorem sit amet, consectetur orci. Morbi tincidunt eros m'
+                  Text(
+                    'Título do arquivo',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                      'e eget metus semper, efficitur lorem sit amet, consectetur orci. Morbi tincidunt eros m'
                       'ctor. Fusce vitae vehicula nibh. Morbi elit purus, pharetra a quam non, porttitor consectetur lacu'
                       ' facilisis, dui mauris eleifend velit'),
                 ],
@@ -64,7 +78,10 @@ class PagesInfoDownloads extends StatelessWidget {
             ),
             Container(
               width: 25,
-              child: Icon(Icons.cloud_download, size: 30,),
+              child: Icon(
+                Icons.cloud_download,
+                size: 30,
+              ),
             )
           ],
         ),
