@@ -14,7 +14,7 @@ App com a nova navegação do projeto lms-mobile
 [Aprenda a clonar um repositório pelo GitHub.](https://help.github.com/en/articles/cloning-a-repository)
 
 ```
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+$ git clone https://github.com/RicardoRaymundo/ux_navigation.git
 ```
 
 ### Aprender  
