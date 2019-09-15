@@ -2,15 +2,38 @@
 
 App com a nova navegação do projeto lms-mobile
 
-## Getting Started
+<img src="https://media.giphy.com/media/MeDh14KIsqiRhnquUv/giphy.gif" width="200">
 
-This project is a starting point for a Flutter application.
+## Conteúdo
+1. __Utilizar__
+2. __Aprender__
+3. __Contribuir__
 
-A few resources to get you started if this is your first Flutter project:
+### Utilizar
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+[Aprenda a clonar um repositório pelo GitHub.](https://help.github.com/en/articles/cloning-a-repository)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+```
+
+### Aprender  
+Para este projeto foi implementada uma[Custom Bottom Bar de navegação.](https://medium.com/coding-with-flutter/flutter-bottomappbar-navigation-with-fab-8b962bb55013)
+O link acima tem o tutorial completo de como implementar e trabalhar com _tabs_ de navegação.
+
+### Contribuir 
+Contibuições são sempre muito bem vindas! As contribuições não precisam serem somente através de desenvolvimentos de códigos, qualquer ajuda com ideias, sugestões, melhorias na documentação ou doações para os desenvolvedores são sempre muito apreciadas!
+
+Participe da comunidade [Projeto que Vale](http://www.projetoquevale.com.br/) e colabore da forma que achar melhor.
+
+### Licença
+MIT License
+
+Copyright (c) 2018 PROJETO QUE VALE
+
+É concedida permissão, gratuitamente, a qualquer pessoa que obtenha uma cópia deste software e dos arquivos de documentação associados (o "Software"), para negociar o Software sem restrições, incluindo, sem limitação, os direitos de uso, cópia, modificação e fusão , publicar, distribuir, sublicenciar e / ou vender cópias do Software, e permitir que as pessoas a quem o Software é fornecido o façam, sujeitas às seguintes condições:
+
+O aviso de copyright acima e este aviso de permissão devem ser incluídos em todas as cópias ou partes substanciais do Software.
+
+O SOFTWARE É FORNECIDO "NO ESTADO EM QUE SE ENCONTRA", SEM NENHUM TIPO DE GARANTIA, EXPRESSA OU IMPLÍCITA, INCLUINDO, MAS NÃO SE LIMITANDO ÀS GARANTIAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UM FIM ESPECÍFICO E NÃO VIOLAÇÃO. EM NENHUMA CIRCUNSTÂNCIA, OS AUTORES OU PROPRIETÁRIOS DE DIREITOS DE AUTOR PODERÃO SER RESPONSABILIZADOS POR QUAISQUER REIVINDICAÇÕES, DANOS OU OUTRAS RESPONSABILIDADES, QUER EM ACÇÃO DE CONTRATO, DELITO OU DE OUTRA FORMA, DECORRENTES DE, OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTRAS NEGOCIAÇÕES NO PROGRAMAS.
+
