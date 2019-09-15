@@ -18,7 +18,7 @@ $ git clone https://github.com/RicardoRaymundo/ux_navigation.git
 ```
 
 ### Aprender  
-Para este projeto foi implementada uma[Custom Bottom Bar de navegação.](https://medium.com/coding-with-flutter/flutter-bottomappbar-navigation-with-fab-8b962bb55013)
+Para este projeto foi implementada uma [Custom Bottom Bar de navegação.](https://medium.com/coding-with-flutter/flutter-bottomappbar-navigation-with-fab-8b962bb55013)
 O link acima tem o tutorial completo de como implementar e trabalhar com _tabs_ de navegação.
 
 ### Contribuir 
